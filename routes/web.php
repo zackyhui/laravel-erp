@@ -29,3 +29,7 @@ Route::get('/students', [StudentController::class, 'index']);
 //Route::get('/students', 'App\Http\Controllers\StudentController@index');
 
 Route::get('/students/{id}', [StudentController::class, 'show']);
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+});
