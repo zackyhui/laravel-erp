@@ -23,7 +23,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-use App\Http\Controllers\StudentController;
+use App\Http\Controllers\Web\StudentController;
 
 Route::get('/students', [StudentController::class, 'index']);
 //Route::get('/students', 'App\Http\Controllers\StudentController@index');
