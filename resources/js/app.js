@@ -13,6 +13,8 @@ require('./bootstrap');
  */
 
 require('./components/Example');
+require('./components/List');
 require('./components/DashboardNavbar');
 require('./components/Dashboard');
+
 

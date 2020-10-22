@@ -10,13 +10,21 @@ use App\Http\Controllers\DB;
 class StudentController extends Controller
 {
     public function index() {
-        $students = Student::orderBy('age', 'DESC')->get();
+        $response = \App::call('App\Http\Controllers\API\StudentController@getAllStudents');
+        $students = $response->getData()->data;
+        $students_list = [];
+        foreach ($students as $student) {
+
+            $result = (array) $student;
+            $students_list[] = $result;
+        }
+
+        return view('students_profile', ['students' => $students_list]);
         /*
-        $students = Student::where('age', '>', 10)
-            ->where('name', 'Ada')
-            ->get();
+        $result = json_decode(json_encode($students), true);
+        //var_dump($result['data']);exit();
+        return view('students_profile', ['students' => $result['data']]);
         */
-        return view('students_profile', ['students' => $students]);
     }
 
     public function show($sid) {

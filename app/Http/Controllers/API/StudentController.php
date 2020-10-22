@@ -6,12 +6,28 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Student;
 use App\Http\Controllers\DB;
+use App\Http\Resources\Student as StudentResource;
+
+use Illuminate\Support\Facades\Config;
 
 class StudentController extends Controller
 {
     public function getAllStudents() {
+        /*
         $students = Student::orderBy('age', 'ASC')->get()->toJson(JSON_PRETTY_PRINT);
         return response($students , 200);
+        */
+
+        $students = Student::orderBy('age', 'DESC')->get();
+        //print_r($students);
+        /*
+        return response()
+        ->json(['data' => $students])
+        ->setStatusCode(200);
+        */
+        return StudentResource::collection($students)
+                ->response()->setStatusCode(200);
+
     }
 
     public function createStudent(Request $request) {

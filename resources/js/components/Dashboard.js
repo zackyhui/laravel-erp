@@ -14,14 +14,15 @@ class Dashboard extends Component {
             height: '200px',
             size: 'lg',
             justifyContent: 'center',
-            margin: '10px'
+            margin: '10px',
+            textAlign: 'center',
         };
         console.log('i render');
         return (
             <div>
                 <Container>
                     <Row className="justify-content-md-center">
-                    <Button variant="primary" style={ dashboardStyle }>Primary</Button>{' '}
+                    <Button variant="primary" style={ dashboardStyle } >Primary</Button>{' '}
                     <Button variant="secondary" style={ dashboardStyle }>Secondary</Button>{' '}
                     <Button variant="success" style={ dashboardStyle }>Success</Button>{' '}
                     </Row>
