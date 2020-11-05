@@ -20,12 +20,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 use App\Http\Controllers\API\StudentController;
 
 Route::get('students', [StudentController::class, 'getAllStudents']);
+Route::get('students/size/{rpp}', [StudentController::class, 'getAllStudents']);
 
-Route::get('students/{id}', [StudentController::class, 'getStudent']);
+Route::get('student/sid/{id}', [StudentController::class, 'getStudent']);
 
 Route::post('students', [StudentController::class, 'createStudent']);
 
-Route::put('students/{id}', [StudentController::class, 'updateStudent']);
+Route::put('student/{id}', [StudentController::class, 'updateStudent']);
 
 Route::delete('students/{id}',[StudentController::class, 'deleteStudent']);
 

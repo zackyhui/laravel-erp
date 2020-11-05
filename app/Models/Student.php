@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Student extends Model
 {
     use HasFactory;
-    protected $table = 'students_profile';
+    protected $table = 'students';
 
     protected $fillable = [
         'id',
@@ -16,4 +16,11 @@ class Student extends Model
         'age',
         'class',
     ];
+
+    protected $casts = [
+        'created_at' => 'datetime:Y-m-d H:i:s',
+        'last_updated_at' => 'datetime:Y-m-d H:i:s',
+    ];
+
+    public $timestamps = false;
 }

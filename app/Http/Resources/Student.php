@@ -20,7 +20,8 @@ class Student extends JsonResource
                 'name' => $this->name,
                 'age' => $this->age,
                 'class' => $this->class,
-
+                'created_at' =>  $this->created_at,
+                'last_updated_at' =>  $this->last_updated_at,
         ];
     }
 }
